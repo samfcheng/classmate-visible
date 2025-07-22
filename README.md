@@ -1,38 +1,11 @@
-# create-svelte
+## Introduction
+What's this? Classmate is an AI-powered writing feedback tool, aiming to help students get feedback on their writing, and learn while doing it. It's kind of like grammarly on steriods. If Uber is the anti-Taxi, Classmate is the anti-ChatGPT. This repository is the public repo. I am not talented or skilled enough with Git to figure out how to keep it all in one repo or hide specific files. This repo has everything that the public one does, except I removed sensitive code including API keys, some payment processing stuff, and service account information. Other than that, this is the full code.
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+## Development
+Classmate was built with the following tools:
+- SvelteKit
+- Pocketbase
+- ...and that's pretty much it - I use SCSS for styling and a few other useful packages, but most of the site is created from scratch. No UI frameworks, just thousands of lines of CSS :)
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+## Questions? Feedback?
+If you have questions or feedback, please let me know! You can contact me through the chat widget on www.classmate.app, or email at contact@samcheng.co. Mention you saw this, and I will mail you a Classmate sticker!

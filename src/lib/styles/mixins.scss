@@ -1,0 +1,48 @@
+$yellow: #fff45f;
+$green: #85ff87;
+$blue: #84d6ff;
+$red: #ffb595;
+$orange: #ffd07e;
+$bg-secondary: #FAFAFA;
+$text-light: #737373;
+$accent: #FFF380;
+
+
+@mixin x-padding {
+  padding-left: 4rem;
+  padding-right: 4rem;
+
+  @media (max-width: 675px) {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+  @media (max-width: 450px) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin reset-button {
+  font: inherit;
+  border: none;
+  background: transparent;
+  padding: 0;
+  width: fit-content;
+}
+
+@mixin link {
+  color: $text-light;
+  text-decoration: underline solid rgb(0 0 0 / 0.1);
+
+  &:hover {
+    color: rgb(0 0 0 / 0.75);
+    text-decoration: underline solid rgb(0 0 0 / 0.2)
+  }
+}

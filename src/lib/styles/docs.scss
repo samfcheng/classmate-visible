@@ -1,0 +1,236 @@
+@import 'mixins.scss';
+
+.docs-header {
+  min-height: min(40vh, 23rem);
+  background: $accent;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 4rem;
+  @include x-padding;
+
+  h1 {
+    font-size: 2.75rem;
+    margin: 0;
+
+    @media (max-width: 700px) {
+      font-size: 2rem;
+    }
+  }
+}
+
+.docs-main {
+  padding: 4rem;
+  @include x-padding;
+
+  .docs-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 2rem;
+
+    .create-new {
+      width: 100%;
+      height: 18rem;
+      color: inherit;
+      text-decoration: none;
+      padding-top: 4rem;
+      text-align: center;
+      border: 1px solid rgb(0 0 0 / 0.1);
+      background: $accent;
+      border-radius: 0.5rem;
+      position: relative;
+      min-height: 16rem;
+
+      transition: 0.2s ease;
+
+      .text {
+        font-size: 1.125rem;
+        font-weight: 450;
+      }
+
+      &:after {
+        content: "+";
+        margin: 0;
+        line-height: 0.75;
+        font-size: 24rem;
+        width: 0.525em;
+        height: 0.65em;
+        font-weight: 500;
+        color: rgba(0, 0, 0, 0.1);
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        overflow: hidden;
+
+        transition: 0.2s ease;
+      }
+
+      &:hover {
+        background: darken($accent, 5%);
+
+        &:after {
+          color: rgba(0, 0, 0, 0.125);
+        }
+      }
+    }
+
+    .doc-wrapper {
+      height: 18rem;
+      position: relative;
+
+      .doc {
+        display: block;
+        color: inherit;
+        text-decoration: none;
+        background: #F5F5F5;
+        border-radius: 0.5rem;
+        border: 1px solid rgb(0 0 0 / 0.1);
+        padding: 2rem;
+        overflow: hidden;
+
+        width: 100%;
+        height: 100%;
+      }
+      .doc-preview-text {
+        font-size: 0.875rem;
+        min-height: 20rem;
+        p {
+          margin-top: 0;
+          line-height: 1.5;
+        }
+        mark {
+          background: transparentize($yellow, 0.75);
+          border-bottom: 2px solid darken($yellow, 20%);
+
+          &.star {
+            background: transparentize($green, 0.75);
+            border-bottom: 2px solid $green;
+          }
+          &.word-reduction {
+            background: transparentize($red, 0.75);
+            border-bottom: 2px solid $red;
+          }
+          &.grammar-spelling {
+            background: transparentize($blue, 0.75);
+            border-bottom: 2px solid $blue;
+          }
+        }
+      }
+
+      .floating-trash-button {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        
+        width: 2.25rem;
+        height: 2.25rem;
+        background: white;
+        border: 1px solid rgb(0 0 0 / 0.1);
+        border-radius: 50%;
+
+        transition: 0.2s ease;
+        display: grid;
+        place-items: center;
+
+        @media (min-width: 800px) {
+          opacity: 0;
+        }
+
+        &:hover {
+          cursor: pointer;
+          opacity: 1;
+          color: darken($red, 20%);
+          border: 1px solid darken($red, 20%);
+          transform: scale(0.975);
+        }
+      }
+      &:has(.doc:hover) > .floating-trash-button {
+        opacity: 1;
+      }
+
+      .doc-info {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: white;
+        padding: 2rem;
+        border: 1px solid rgb(0 0 0 / 0.1);
+        border-radius: 0 0 0.5rem 0.5rem;
+
+        transition: 0.2s ease;
+
+        h2 {
+          font-size: 1.125rem;
+          margin: 0;
+        }
+        .type {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          margin-top: 0.5rem;
+        }
+      }
+
+      &:hover .doc-info {
+        background: #fcfcfc;
+      }
+    }
+  }
+
+  .loading-placeholder-doc {
+    height: 18rem;
+    background: linear-gradient(70deg, #E5E5E5 0%, #E5E5E5 47%, #F5F5F5 50%, #E5E5E5 53%, #E5E5E5 100%);
+    background-size: 400% 100%;
+    animation-name: animated-loading-background;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    background-repeat: no-repeat;
+    animation-timing-function: linear;
+    border-radius: 0.5rem;
+    border: 1px solid #DDDDDD;
+    position: relative;
+    overflow: hidden;
+
+    .placeholder-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: white;
+      border-top: 1px solid #DDDDDD;
+
+      padding: 2rem;
+
+      h2, span {
+        color: transparent;
+        pointer-events: none;
+        user-select: none;
+        border-radius: 4px;
+
+        background: linear-gradient(70deg, #E5E5E5 0%, #E5E5E5 47%, #F5F5F5 50%, #E5E5E5 53%, #E5E5E5 100%);
+        background-size: 400% 100%;
+        animation-name: animated-loading-background;
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+        background-repeat: no-repeat;
+        animation-timing-function: linear;
+      }
+      h2 {
+        font-size: 1.25rem;
+        margin: 0;
+      }
+      span {
+        display: block;
+        margin-top: 0.5rem;
+        width: 50%;
+        animation-duration: 2.5s;
+        animation-delay: -4.9s;
+      }
+    }
+  }
+  @keyframes animated-loading-background {
+    from {background-position: 75% 0;}
+    to {background-position: 20% 0;}
+  }
+}

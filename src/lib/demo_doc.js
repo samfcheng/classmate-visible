@@ -1,0 +1,52 @@
+export const demo_doc = {
+  title: 'Demo Document',
+  content: `Since I was three years old, softball has been a constant in my life. Some of my earliest memories involve picking up a bat that was nearly as big as I was and swinging it with all my might in my backyard. As I grew, so did my love for the game. From hitting off a tee in my first years of Little League to the intense high school competitions, softball has definitely shaped who I am and how I see the world.
+
+At first, I played because it was fun. The excitemet of running around the bases, the cheers from my teammates, and the occasional reward of ice cream after a big win were all that mattered. I realized that softball was teaching me much more than just how to play a sport.
+
+Softball has not always been easy. There have been lots of times when I wanted to quit. In middle school, I hit a slump that seemed to last forever. I couldn’t seem to connect with the ball, no matter how many times I practiced. My confidence dropped, and I started to doubt myself. My teammates were progressing, while I felt like I was stuck. It was frustrating, and I seriously considered giving up the sport for good.
+
+I kept showing up to practice, even when I didn’t feel like it. On days where I didn't feel like it, I still showed up. I stayed after to work on my swing, even when I’d rather be doing something else. My parents encouraged me, and my coaches believed in me even when I didn’t believe in myself. Slowly but surely, I began to improve. I wasn’t hitting home runs right away, but I was making contact. Eventually, I worked my way out of the slump.
+
+Softball has also taught me how to be part of a team. As a pitcher, I’ve learned that no matter how well I perform, I can’t win the game alone. I rely on my teammates to field the ball, to make the plays, and to back me up when things don’t go as planned. Over the years, my team has become like a second family to me. We celebrate each other’s successes, and we supports each other through failures. It’s this sense of camaraderie that makes playing so special.
+
+Balancing academics and softball has been one of the greatest challenges I’ve faced in high school. Between practices, games, and schoolwork, my schedule is packed. But I’ve learned how to manage my time, stay organized, and prioritize what’s important. It hasn’t always been easy, I’m proud of the discipline over the years I've developed.
+
+Softball has also helped me in other areas of my life. The confidence I’ve gained on the field has translated to my performance in the classroom. I’m no longer afraid to speak up in class or take on leadership roles in group projects. The lessons I’ve learned about perseverance and teamwork have made me a better student, friend, and person.
+
+As I look ahead to college, I know that softball will continue to be a part of my life. While I may not play at the same competitive level, the lessons it has taught me will stay with me forever. Softball has shaped who I am today, and it’s a big part of why I’m the person I am today. Without it, honestly, my application and my life would be incomplete.`,
+  preview_text: `<p><mark class="feedback star">Welcome to Classmate!</mark> This is a demo doc that showcases college application essay feedback.</p>
+  <p>Click the <mark class="feedback grammar-spelling">Create New</mark> button to get new feedback, or check this one out.</p>`,
+  context: "Common Application Personal Statement: Some students have a background, identity, interest, or talent that is so meaningful they believe their application would be incomplete without it. If this sounds like you, then please share your story. 650 word limit",
+  type: "College Application",
+  focus: "Balanced",
+  commented: `Since I was three years old, softball has been a constant in my life. [Some of my earliest memories involve picking up a bat that was nearly as big as I was and swinging it with all my might in my backyard.]{{This is a great opening image! It's vivid and immediately brings the reader into your world.}}(star) As I grew, so did my love for the game. From hitting off a tee in my first years of Little League to the intense high school competitions, [softball has definitely shaped who I am and how I see the world.]{{This is a strong thesis for your essay. To make it even more powerful, could you hint at *how* it has shaped your worldview? What specific perspective has it given you?}}(feedback)
+
+At first, I played because it was fun. The [excitemet]{{Just a small typo here for "excitement."}}(grammar-spelling) of running around the bases, the cheers from my teammates, and the occasional reward of ice cream after a big win were all that mattered. [I realized that softball was teaching me much more than just how to play a sport.]{{This is a good transition, but it tells the reader the point directly. Can you show us this realization through a specific memory or moment? When was the first time you understood it was more than just a game?}}(feedback)
+
+Softball has not always been easy. [There have been lots of times when I wanted to quit.]{{This is an effective hook for the paragraph. It creates tension and makes the reader want to know more.}}(star) In middle school, I hit a slump that seemed to last forever. [I couldn’t seem to connect with the ball, no matter how many times I practiced.]{{This section is the heart of your story about perseverance. To draw the reader in further, could you describe one specific moment from this slump? For example, an important at-bat where you struck out? Showing us the scene can be more impactful than summarizing it.}}(feedback) My confidence dropped, and I started to doubt myself. My teammates were progressing, while I felt like I was stuck. It was frustrating, and I seriously considered giving up the sport for good.
+
+I kept showing up to practice, even when I didn’t feel like it. [On days where I didn't feel like it, I still showed up.]{{This sentence repeats the idea from the previous one. You can likely cut this to make your point more concise and impactful.}}(word-reduction) I stayed after to work on my swing, even when I’d rather be doing something else. My parents encouraged me, and [my coaches believed in me even when I didn’t believe in myself.]{{This is a classic and relatable feeling. To make it more personal, can you recall a specific thing a coach said or did that showed their belief in you? A short line of dialogue or a specific memory could replace this more general statement.}}(feedback) Slowly but surely, I began to improve. I wasn’t hitting home runs right away, but I was making contact. Eventually, I worked my way out of the slump.
+
+Softball has also taught me how to be part of a team. [As a pitcher, I’ve learned that no matter how well I perform, I can’t win the game alone.]{{This is a fantastic insight and a great way to introduce the theme of teamwork.}}(star) I rely on my teammates to field the ball, to make the plays, and to back me up when things don’t go as planned. Over the years, my team has become like a second family to me. We celebrate each other’s successes, and we [supports]{{This should be "support" to agree with the plural subject "we."}}(grammar-spelling) each other through failures. [It’s this sense of camaraderie that makes playing so special.]{{What does this camaraderie look like in practice? Could you share a quick story about a specific moment of support from a teammate, or a team ritual that shows this bond?}}(feedback)
+
+[Balancing academics and softball has been one of the greatest challenges I’ve faced in high school.]{{This is a relatable challenge. To make it more vivid, could you "show" us what a packed schedule looked like? For instance, you could briefly describe a specific evening, showing the juggle between homework and practice.}}(feedback) Between practices, games, and schoolwork, my schedule is packed. But I’ve learned how to manage my time, stay organized, and prioritize what’s important. [It hasn’t always been easy, I’m proud of the discipline over the years I've developed.]{{The phrasing here is a bit tangled. Consider rephrasing for clarity, perhaps something like: "It hasn't always been easy, but I'm proud of the discipline I've developed over the years."}}(grammar-spelling)
+
+Softball has also helped me in other areas of my life. The confidence I’ve gained on the field has translated to my performance in the classroom. [I’m no longer afraid to speak up in class or take on leadership roles in group projects.]{{Excellent! Connecting the lessons from softball to specific, non-athletic parts of your life is crucial, and you do that very well here.}}(star) The lessons I’ve learned about perseverance and teamwork have made me a better student, friend, and person.
+
+As I look ahead to college, I know that softball will continue to be a part of my life. While I may not play at the same competitive level, the lessons it has taught me will stay with me forever. [Softball has shaped who I am today, and it’s a big part of why I’m the person I am today.]{{This sentence repeats the same idea. You could combine these thoughts to be more concise.}}(word-reduction) Without it, honestly, my application and my life would be incomplete.`,
+  general_feedback: `### Takeaways:
+- You are **dedicated and resilient**, showing grit through challenges like your hitting slump.
+- You greatly **value teamwork and community**, viewing your team as a second family.
+- You take **responsibility seriously**, balancing academics and athletics with discipline.
+
+### What you did well:
+- Showed **personal growth** by describing a specific struggle and how you overcame it.
+- Connected your softball experience to **broader life lessons** like confidence and time management.
+- Created a **clear, organized narrative** that flows well from early memories to future goals.
+
+### Where you can improve:
+- Add **more unique details or vivid moments** to make your softball story stand out more.
+- Deepen reflection by showing **how your identity is shaped** beyond just the sport’s surface lessons.
+- Strengthen the conclusion by **tying your softball experience directly to your college ambitions or values** rather than ending on a general note.`
+}

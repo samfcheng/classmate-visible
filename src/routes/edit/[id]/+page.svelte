@@ -628,52 +628,138 @@
     <h2 class="popup-title">Get New Feedback</h2>
   </header>
   <div class="resubmit-popup-form">
-    <div class="resubmit-form-main">
-      <div class="section">
-        <h3>Select a Feedback Focus</h3>
-        <div class="selector">
-          <button class={resubmit_feedback_focus == "Balanced" ? "selector-item selected" : "selector-item"} on:click={() => {setResubmitFocus("Balanced")}}>
-            <h4>
-              <Star size="16"/>
-              <span>Balanced</span>
-            </h4>
-            {#if data?.focus == "Balanced"}
-              <span class="alert">
-                Last Used
-              </span>
-            {/if}
-          </button>
-          <button class={resubmit_feedback_focus == "Grammar & Spelling" ? "selector-item selected" : "selector-item"} on:click={() => {setResubmitFocus("Grammar & Spelling")}}>
-            <h4>
-              <PencilRuler size="16"/>
-              <span>Grammar & Spelling</span>
-            </h4>
-            {#if data?.focus == "Grammar & Spelling"}
-              <span class="alert">
-                Last Used
-              </span>
-            {/if}
-          </button>
-          <button class={resubmit_feedback_focus == "Word Reduction" ? "selector-item selected" : "selector-item"} on:click={() => {setResubmitFocus("Word Reduction")}}>
-            <h4>
-              <FileMinus2 size="16"/>
-              <span>Word Reduction</span>
-            </h4>
-            {#if data?.focus == "Word Reduction"}
-              <span class="alert">
-                Last Used
-              </span>
-            {/if}
-          </button>
+    {#if data?.template}
+      <div class="resubmit-template-info">
+        <p>You got feedback using the <a href={`../template/${data?.expand?.template?.slug}`}>{data?.expand?.template?.title}</a> template, so will resubmit using that feedback template. For new feedback, or to use a different template, create a new document.</p>
+      </div>
+    {:else}
+      <div class="resubmit-form-main">
+        {#if data?.focus !== "Advanced"}
+          <div class="section">
+            <h3>Select a Feedback Focus</h3>
+            <div class="selector">
+              <button class={resubmit_feedback_focus == "Balanced" ? "selector-item selected" : "selector-item"} on:click={() => {setResubmitFocus("Balanced")}}>
+                <h4>
+                  <Star size="16"/>
+                  <span>Balanced</span>
+                </h4>
+                {#if data?.focus == "Balanced"}
+                  <span class="alert">
+                    Last Used
+                  </span>
+                {/if}
+              </button>
+              <button class={resubmit_feedback_focus == "Grammar & Spelling" ? "selector-item selected" : "selector-item"} on:click={() => {setResubmitFocus("Grammar & Spelling")}}>
+                <h4>
+                  <PencilRuler size="16"/>
+                  <span>Grammar & Spelling</span>
+                </h4>
+                {#if data?.focus == "Grammar & Spelling"}
+                  <span class="alert">
+                    Last Used
+                  </span>
+                {/if}
+              </button>
+              <button class={resubmit_feedback_focus == "Word Reduction" ? "selector-item selected" : "selector-item"} on:click={() => {setResubmitFocus("Word Reduction")}}>
+                <h4>
+                  <FileMinus2 size="16"/>
+                  <span>Word Reduction</span>
+                </h4>
+                {#if data?.focus == "Word Reduction"}
+                  <span class="alert">
+                    Last Used
+                  </span>
+                {/if}
+              </button>
+            </div>
+          </div>
+        {/if}
+        <div class="section">
+          <h3>Instructions, Rubric, or Context</h3>
+          <textarea name="context" bind:value={resubmit_context}/>
         </div>
+        {#if data?.focus == "Advanced"}
+          <div class="section">
+            <h3>Advanced Instructions</h3>
+            <textarea bind:value={resubmit_advanced_instructions}/>
+          </div>
+        {/if}
       </div>
-      <div class="section">
-        <h3>Instructions, Rubric, or Context</h3>
-        <textarea bind:value={resubmit_context}/>
-      </div>
-    </div>
+    {/if}
     <button class="button" on:click={resubmit}>Resubmit -></button>
   </div>
+</Popup>
+
+<Popup bind:visible={template_menu_open} class="no-padding template-popup">
+  {#if template_created && template_record}
+    <div class="template-created">
+      <h2>Template Created Successfully!</h2>
+      <p>Now that you've created a template, you can share it with others to use your template to get writing feedback on Classmate.</p>
+      <p>Access or share your template at <a target="_blank" href={`/template/${template_record.slug}`}>classmate.app/template/{template_record.slug}</a></p>
+      <button class="button" on:click={() => {template_menu_open = false}}>Done</button>
+    </div>
+  {:else}
+    <header class="template-popup-header">
+      <h2 class="popup-title">Create a Template</h2>
+      <div class="template-info">
+        <h3>Template Info:</h3>
+        <div class="info-group">
+          <p><strong>Writing Type:</strong> {data?.type}</p>
+          <p><strong>Feedback Focus:</strong> {data?.focus}</p>
+        </div>
+      </div>
+    </header>
+    <div class="template-popup-main">
+      <div class="group">
+        <div class="section">
+          <h3>Template Name</h3>
+          <input type="text" name="Template name" bind:value={template_name} maxlength="32"/>
+          {#if template_name.length > 0 && template_name.length < 4}
+            <small class="error hides-on-focus">Needs to be at least four characters</small>
+          {/if}
+        </div>
+        <div class="section">
+          <h3>Template URL</h3>
+          <input type="text" name="Template name" bind:value={template_slug} on:input={clearSpaces} maxlength="16"/>
+          {#if template_slug_error}
+            <small class="error">{template_slug_error}</small>
+          {:else}
+            {#if template_slug.length == 0}
+              <small>classmate.app/template/<span class="slug">[...]</span></small>
+            {:else if template_slug.length < 4}
+              <small class="error hides-on-focus">Needs to be at least four characters</small>
+              <small class="hides-on-no-focus">classmate.app/template/<span class="slug">{template_slug}</span></small>
+            {:else}
+              <small>classmate.app/template/<span class="slug">{template_slug}</span></small>
+            {/if}
+          {/if}
+        </div>
+      </div>
+      <div class="section template-description">
+        <h3>Description</h3>
+        <textarea name="Description" bind:value={template_description}/>
+        <small>Supports Markdown</small>
+      </div>
+      <div class={data?.focus == "Advanced" ? "group" : ""}>
+        <div class="section">
+          <h3>Instructions, Rubric, or Context</h3>
+          <textarea name="Context" bind:value={template_context}/>
+        </div>
+        {#if data?.focus == "Advanced"}
+          <div class="section">
+            <h3>Advanced Feedback Instructions</h3>
+            <textarea name="Advanced Feedback" bind:value={template_advanced_instructions}/>
+          </div>
+        {/if}
+      </div>
+      <div class="template-button">
+        <button class="button" on:click={createTemplate} disabled={template_name.length < 4 || template_slug.length < 4 || !template_description || !template_context}>Create -></button>
+        {#if template_creation_error}
+          <small class="error">Error: {template_creation_error_message}</small>
+        {/if}
+      </div>
+    </div>
+  {/if}
 </Popup>
 
 
@@ -700,6 +786,8 @@
                   {/if}
                 </span>
               </HoverTooltip>
+            {:else if !$currentUser}
+              <a href="../auth" class="pro-button"><LogIn size="12"/>Login</a>
             {:else}
               <a href="../pro" class="pro-button"><Sparkle size="12"/>Get Pro</a>
             {/if}
@@ -739,6 +827,15 @@
                   <Tooltip x_offset="-20%" y_offset="0.25rem" text="💡 TIP: Click to resubmit your writing for new feedback" visible={resubmit_tooltip_visible}>
                     <button on:click={() => {openResubmitMenu(); resubmit_tooltip_visible = false;}}><Redo2 size="16"/> Resubmit</button>
                   </Tooltip>
+                  {#if !data?.template && data?.title !== "Demo Document"}
+                    <button on:click={() => {template_menu_open = true}}><CirclePlus size="16"/> Create Template</button>
+                  {/if}
+                  {#if data?.template}
+                    <button on:click={() => {goto(`/template/${data.expand.template.slug}`)}}>
+                      <Paperclip size="16"/>
+                      {data.expand.template.title}
+                    </button>
+                  {/if}
                 {/if}
                 {#if versions}
                   <button on:click={viewHistory}><History size="16"/> Versions</button>
@@ -815,7 +912,9 @@
   <div class="editor-editor" bind:this={editor_element}>
     <div class="editor-wrapper">
       {#if title !== "Loading..."}
-        <h1 contenteditable bind:innerText={title} on:focusout={saveTitle}>{title}</h1>
+        <h1 contenteditable={$currentUser && $currentUser?.id == data?.user} bind:this={title_element} on:focusout={saveTitle}>
+          {title}
+        </h1>
       {:else}
         <h1>
           <span class="title-loading">Lorem Ipsum Dolor</span>
